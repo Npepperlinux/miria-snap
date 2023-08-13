@@ -17,6 +17,7 @@ parts:
   miria:
     # See 'snapcraft plugins'
     source: https://github.com/shiosyakeyakini-info/miria
+    source-type: git
     plugin: flutter
     flutter-target: lib/main.dart
     build-packages:
