@@ -24,4 +24,4 @@ parts:
       - libjsoncpp-dev
     stage-packages:
       - libsecret-1-0
-      - libjsoncpp-dev
+      - libjsoncpp1
