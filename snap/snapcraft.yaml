@@ -26,3 +26,4 @@ parts:
     stage-packages:
       - libsecret-1-0
       - libjsoncpp1
+      - zenity
