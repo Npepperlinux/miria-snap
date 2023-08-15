@@ -1,0 +1,25 @@
+name: Snapパッケージのビルド
+run-name: Building Miria's Snap package
+on: [push]
+jobs:
+  build:
+    name: ビルド
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install Snapcraft with LXD
+        uses: samuelmeuli/action-snapcraft@v2
+        with:
+          use_lxd: ${{ matrix.os == 'ubuntu-18.04' }}
+
+      - name: Build Snap
+        run: |
+          sg lxd -c 'snapcraft --use-lxd'
+          MIRIA_VIRSION=`ls ~ | grep miria | cut -d . -f 1-2`
+
+      - name: Create tag and release note
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create v$MIRIA_VIRSION --generate-note --draft ./$MIRIA_VIRSION.snap
