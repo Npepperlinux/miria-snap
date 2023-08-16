@@ -13,20 +13,14 @@ jobs:
         uses: snapcore/action-build@v1
         id: snapcraft
 
-      - name: Generate token
-        id:  generate_token
-        uses: tibdex/github-app-token@v1
-        with:
-          app_id: ${{ secrets.APP_ID }}
-          private_key:  ${{ secrets.PRIVATE_KEY }}
-
       - name: Create release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Build snap ${{ github.ref }}
-          body: test build ${{ github.ref }}
+          tag_name: 1.0.2+56
+          release_name: Build snap 1.0.2+56
+          body: test build 1.0.2+56
+          bodyFile: ${{ steps.snapcraft.outputs.snap }}
           draft: true
           prerelease: true
