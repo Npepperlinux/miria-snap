@@ -14,8 +14,15 @@ apps:
     extensions: [flutter-stable]
 
 parts:
+  zenity:
+    plugin: nil
+    stage-packages:
+      - zenity
+
   miria:
     # See 'snapcraft plugins'
+    after:
+      - zenity
     source: https://github.com/shiosyakeyakini-info/miria
     source-type: git
     plugin: flutter

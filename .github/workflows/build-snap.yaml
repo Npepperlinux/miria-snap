@@ -1,6 +1,6 @@
 name: Snapパッケージのビルド
 run-name: Building Miria's Snap package
-on: [push]
+on: [workflow_dispatch]
 jobs:
   build:
     name: ビルド
@@ -22,7 +22,7 @@ jobs:
           tag_name: 1.0.2+56
           release_name: Build snap 1.0.2+56
           body: test build 1.0.2+56
-          draft: tru
+          draft: true
           prerelease: true
           
       - name: Upload release asset
