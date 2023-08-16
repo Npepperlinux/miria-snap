@@ -16,11 +16,11 @@ apps:
 parts:
   zenity:
     plugin: nil
-    build-packages:
-      - libfontconfig1-dev
     stage-packages:
       - zenity
-      - libfontconfig1
+    prime:
+      - usr/bin/zenity
+      - usr/share/zenity/*
 
   miria:
     # See 'snapcraft plugins'
@@ -36,3 +36,7 @@ parts:
     stage-packages:
       - libsecret-1-0
       - libjsoncpp1
+
+layout:
+  /usr/share/zenity:
+    symlink: $SNAP/usr/share/zenity
