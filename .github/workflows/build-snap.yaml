@@ -21,6 +21,6 @@ jobs:
           tag_name: 1.0.2+56
           release_name: Build snap 1.0.2+56
           body: test build 1.0.2+56
-          bodyFile: ${{ steps.snapcraft.outputs.snap }}
+          artifacts: ${{ steps.snapcraft.outputs.snap }}
           draft: true
           prerelease: true
