@@ -6,7 +6,8 @@ jobs:
     name: ビルド
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout Code
+        uses: actions/checkout@v2
 
       - name: Build snap
         uses: snapcore/action-build@v1
@@ -22,10 +23,10 @@ jobs:
       - name: Create release
         uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: 1.0.2+56
-          release_name: Build snap 1.0.2+56
-          body: test build 1.0.2+56
+          tag_name: ${{ github.ref }}
+          release_name: Build snap ${{ github.ref }}
+          body: test build ${{ github.ref }}
           draft: true
           prerelease: true
