@@ -11,6 +11,7 @@ confinement: devmode # use 'strict' once you have the right plugs and slots
 apps:
   miria:
     command: miria
+    desktop: usr/share/applications/miria-snap.desktop
     extensions: [flutter-stable]
 
 parts:

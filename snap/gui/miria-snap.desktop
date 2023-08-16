@@ -5,3 +5,6 @@ Icon=${SNAP}/meta/gui/miriaforlinux.png
 Exec=miria
 Type=Application
 Comment=Misskey client app for mobile (Linux build)
+Terminal=false
+StartupNotify=false
+Keywords=miria, misskey, みりあ
