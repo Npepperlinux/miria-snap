@@ -14,18 +14,8 @@ apps:
     extensions: [flutter-stable]
 
 parts:
-  zenity:
-    plugin: nil
-    stage-packages:
-      - zenity
-    prime:
-      - usr/bin/zenity
-      - usr/share/zenity/*
-
   miria:
     # See 'snapcraft plugins'
-    after:
-      - zenity
     source: https://github.com/shiosyakeyakini-info/miria
     source-type: git
     plugin: flutter
@@ -33,10 +23,10 @@ parts:
     build-packages:
       - libsecret-1-dev
       - libjsoncpp-dev
+      - zenity
+      - libfontconfig1-dev
     stage-packages:
       - libsecret-1-0
       - libjsoncpp1
-
-layout:
-  /usr/share/zenity:
-    symlink: $SNAP/usr/share/zenity
+      - zenity
+      - libfontconfig1
