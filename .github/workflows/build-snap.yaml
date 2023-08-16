@@ -21,6 +21,6 @@ jobs:
 
       - name: Create tag and release note
         env:
-          GITHUB_TOKEN: ${{ secrets.generate_t }}
+          GH_TOKEN: ${{ secrets.generate_t }}
         run: |
           gh release create v1.0.2+56 --generate-notes --draft ${{ steps.snapcraft.outputs.snap }}
