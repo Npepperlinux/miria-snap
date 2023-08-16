@@ -14,6 +14,7 @@ jobs:
         id: snapcraft
 
       - name: Create release
+        id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -21,6 +22,11 @@ jobs:
           tag_name: 1.0.2+56
           release_name: Build snap 1.0.2+56
           body: test build 1.0.2+56
-          artifacts: ${{ steps.snapcraft.outputs.snap }}
-          draft: true
+          draft: tru
           prerelease: true
+          
+      - name: Upload release asset
+        uses: sekwah41/upload-release-assets@v1.1.0
+        upload_url: ${{ steps.create_release.outputs.upload_url}}
+        asset_path: ${{ steps.snapcraft.outputs.snap }}
+        
