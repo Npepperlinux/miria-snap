@@ -2,7 +2,7 @@
 Name=Miria
 Version=1.0
 Icon=${SNAP}/meta/gui/miria-snap.png
-Exec=miria
+Exec=miria-snap.miria
 Type=Application
 Comment=Misskey client app for mobile (Linux build)
 Terminal=false
