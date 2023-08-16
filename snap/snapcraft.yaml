@@ -16,8 +16,11 @@ apps:
 parts:
   zenity:
     plugin: nil
+    build-packages:
+      - libfontconfig1-dev
     stage-packages:
       - zenity
+      - libfontconfig1
 
   miria:
     # See 'snapcraft plugins'
@@ -30,8 +33,6 @@ parts:
     build-packages:
       - libsecret-1-dev
       - libjsoncpp-dev
-      - libfontconfig1-dev
     stage-packages:
       - libsecret-1-0
       - libjsoncpp1
-      - libfontconfig1
