@@ -19,6 +19,7 @@ apps:
       - network
       - password-manager-service
       - home
+      - removable-media
 
 parts:
   miria:
