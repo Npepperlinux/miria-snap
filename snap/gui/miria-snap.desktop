@@ -1,10 +1,12 @@
 [Desktop Entry]
+Version=1.0
 Name=Miria
 GenericName=Miria
 Type=Application
-Version=1.0
+Exec=/snap/bin/miria-snap.miria
 Icon=${SNAP}/bin/data/flutter_assets/assets/images.icon.png
-Exec=miria
 Comment=Misskey client app for mobile (Linux build)
+Comment[ja]=モバイル向けのMisskeyクライアントアプリ（Linux向けビルド）
+Keywords=Misskey;Miria;みりあ
 Terminal=false
 StartupNotify=false
