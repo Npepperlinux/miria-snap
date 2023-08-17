@@ -17,6 +17,8 @@ apps:
     extensions: [flutter-stable]
     plugs:
       - network
+      - password-manager-service
+      - home
 
 parts:
   miria:
