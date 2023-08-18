@@ -14,22 +14,15 @@ jobs:
         id: snapcraft
 
       - name: Create release
-        id: create_release
-        uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: 1.0.2+56
-          release_name: Build snap 1.0.2+56
-          body: test build 1.0.2+56
-          draft: true
-          prerelease: true
-          
-      - name: Upload release asset
-        uses: sekwah41/upload-release-assets@v1.1.0
+        run: |
+          gh release v1.0.2+56 --draft ${{ steps.snapcraft.outputs.snap }}         
+
+      - name: Upload SnapStore
+        uses: snapcore/action-publish@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.STORE_LOGIN }}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url}}
-          asset_path: ${{ steps.snapcraft.outputs.snap }}
-        
+          snap: ${{ steps.snapcraft.outputs.snap }}
+          release: edge
