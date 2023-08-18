@@ -1,6 +1,6 @@
 name: miria-snap # you probably want to 'snapcraft register <name>'
 base: core18 # the base snap is the execution environment for this snap
-version: 1.0.2+56 # just for humans, typically '1.2+git' or '1.3.2'
+adopt-info: miria
 summary: Misskey Client App # 79 char long summary
 description: |
   Flutterで構築されたモバイル向けMisskeyクライアントアプリ（Linuxビルド）。
@@ -27,6 +27,10 @@ parts:
     source: https://github.com/shiosyakeyakini-info/miria
     source-type: git
     plugin: flutter
+    override-pull: |
+      snapcraftctl pull
+      VERSION=$(flutter pub run cider version)
+      snapcraftctl set-version $VERSION
     flutter-target: lib/main.dart
     build-packages:
       - libsecret-1-dev
