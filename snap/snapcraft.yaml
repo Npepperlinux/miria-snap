@@ -1,11 +1,16 @@
 name: miria-snap # you probably want to 'snapcraft register <name>'
+title: Miria Unofficial Snap
+license: AGPL-3.0
+source-code: https://github.com/Npepperlinux/miria-snap
+issues: https://github.com/Npepperlinux/miria-snap/issues
+website: https://github.com/Npepperlinux/miria-snap
 base: core18 # the base snap is the execution environment for this snap
 adopt-info: miria
 summary: Misskey Client App # 79 char long summary
 description: |
   Flutterで構築されたモバイル向けMisskeyクライアントアプリ（Linuxビルド）。
 
-grade: devel # must be 'stable' to release into candidate/stable channels
+grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict # use 'strict' once you have the right plugs and slots
 architectures:
   - amd64
