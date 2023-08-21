@@ -17,7 +17,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release v1.0.2+58 --draft ${{ steps.snapcraft.outputs.snap }}         
+          gh release create v1.0.2+58 --draft ${{ steps.snapcraft.outputs.snap }}         
 
       #- name: Upload SnapStore
       #  uses: snapcore/action-publish@v1
