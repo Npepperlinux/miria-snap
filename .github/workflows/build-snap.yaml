@@ -1,6 +1,6 @@
 name: Snapパッケージのビルド
 run-name: Building Miria's Snap package
-on: [workflow_dispatch]
+on: [push]
 jobs:
   build:
     name: ビルド
@@ -17,12 +17,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release v1.0.2+56 --draft ${{ steps.snapcraft.outputs.snap }}         
+          gh release v1.0.2+58 --draft ${{ steps.snapcraft.outputs.snap }}         
 
-      - name: Upload SnapStore
-        uses: snapcore/action-publish@v1
-        env:
-          SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.STORE_LOGIN }}
-        with:
-          snap: ${{ steps.snapcraft.outputs.snap }}
-          release: edge
+      #- name: Upload SnapStore
+      #  uses: snapcore/action-publish@v1
+      #  env:
+      #    SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.STORE_LOGIN }}
+      #  with:
+      #    snap: ${{ steps.snapcraft.outputs.snap }}
+      #    release: edge
