@@ -14,6 +14,13 @@ parts:
     plugin: flutter
     source: https://github.com/shiosyakeyakini-info/miria.git
     flutter-target: lib/main.dart
+    build-packages:
+      - libsecret-1-dev
+      - libmpv-dev
+    stage-packages:
+      - libsecret-1-0
+      - libmpv1
+
 
 apps:
   miria-snap:
