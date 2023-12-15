@@ -1,5 +1,5 @@
 name: miria-snap # you probably want to 'snapcraft register <name>'
-base: core18 # the base snap is the execution environment for this snap
+base: core22 # the base snap is the execution environment for this snap
 summary: Misskey Client for Mobile # 79 char long summary
 adopt-info: miria-snap
 description: |
@@ -21,9 +21,9 @@ parts:
       - libsecret-1-0
       - libmpv1
     override-pull:
-      snapcraft pull
+      craftctl default
       VERSION=$(cat pubspec.yaml | grep "version[:]" | cut -d " " -f 2)
-      snapcraft set-version $VERSION
+      craftctl set version=$VERSION
   zenity:
     plugin: nil
     stage-packages:
@@ -35,7 +35,7 @@ parts:
 apps:
   miria-snap:
     command: miria
-    extentions: [flutter-stable]
+    extentions: [gnome]
     plugs:
       - audio-playback
       - password-manager-service
