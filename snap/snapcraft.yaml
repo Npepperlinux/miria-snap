@@ -20,7 +20,13 @@ parts:
     stage-packages:
       - libsecret-1-0
       - libmpv1
-
+  zenity:
+    plugin: nil
+    stage-packages:
+      - zenity
+    prime:
+      - usr/bin/zenity
+      - usr/share/zenity/*
 
 apps:
   miria-snap:
