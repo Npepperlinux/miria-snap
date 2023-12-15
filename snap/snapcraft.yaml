@@ -5,8 +5,8 @@ summary: Misskey Client for Mobile # 79 char long summary
 description: |
   Misskey Client App built with Flutter
 
-grade: devel # must be 'stable' to release into candidate/stable channels
-confinement: devmode # use 'strict' once you have the right plugs and slots
+grade: stable # must be 'stable' to release into candidate/stable channels
+confinement: strict # use 'strict' once you have the right plugs and slots
 
 parts:
   miria-snap:
@@ -26,3 +26,7 @@ apps:
   miria-snap:
     command: miria
     extentions: [flutter-stable]
+    plugs:
+      - audio-playback
+      - password-manager-service
+
