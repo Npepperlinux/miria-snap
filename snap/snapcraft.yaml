@@ -35,7 +35,7 @@ parts:
 apps:
   miria-snap:
     command: miria
-    extentions: [gnome]
+    extensions: [gnome]
     plugs:
       - audio-playback
       - password-manager-service
